@@ -15,4 +15,4 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: creat un dossier 
-      uses: mkdir archive
+      uses: mkdir /archive
