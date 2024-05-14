@@ -22,6 +22,11 @@ jobs:
       run: |
         shopt -s extglob
         mv !(archive|.git|link_file.txt) archive/
-        
+
     - name: Zip the archive directory
       run: zip -r archive.zip archive
+
+    - name: Remove all files except .git and archive.zip
+      run: |
+        shopt -s extglob
+        rm -rf !(archive.zip|.git|link_file.txt)
