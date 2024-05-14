@@ -30,7 +30,10 @@ jobs:
       run: |
         shopt -s extglob
         rm -rf !(archive.zip|.git|link_file.txt)
-    
     - name: Commit archived content
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add archive.zip
+        git commit -m "Archived and zipped content"
+      
