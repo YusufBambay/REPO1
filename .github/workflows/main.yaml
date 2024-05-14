@@ -18,4 +18,7 @@ jobs:
     - name: Create archive directory
       run: mkdir archive
 
-    
+    - name: Move files to archive directory
+      run: |
+        mv !(archive|.git|.github) archive/
+  
