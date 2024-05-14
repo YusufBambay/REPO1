@@ -36,4 +36,5 @@ jobs:
         git config --global user.email 'github-actions@github.com'
         git add archive.zip
         git commit -m "Archived and zipped content"
+        ls -la
         git push
