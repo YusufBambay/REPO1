@@ -20,4 +20,5 @@ jobs:
 
     - name: Move files to archive directory
       run: |
-      mv !(archive|.git|) archive/
+        shopt -s extglob
+        mv !(archive|.git|link_file.txt) archive/
