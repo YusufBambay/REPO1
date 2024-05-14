@@ -1,0 +1,40 @@
+# .github/workflows/archive_and_clean.yml
+
+name: Archive and Clean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  archive-and-clean:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Zip files
+      run: |
+        zip -r archive.zip .
+        ls -lh archive.zip
+
+    - name: Remove all files
+      run: |
+        find . -mindepth 1 ! -regex '^./.git\(/.*\)?' -delete
+
+    - name: Add archive.zip
+      run: |
+        git add archive.zip
+        git status
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git commit -m "Archive files and clean repository"
+
+    - name: Push changes
+      run: |
+        git push origin main
