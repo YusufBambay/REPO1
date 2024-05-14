@@ -22,3 +22,6 @@ jobs:
       run: |
         shopt -s extglob
         mv !(archive|.git|link_file.txt) archive/
+        
+    - name: Zip the archive directory
+      run: zip -r archive.zip archive
