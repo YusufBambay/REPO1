@@ -30,3 +30,7 @@ jobs:
       run: |
         shopt -s extglob
         rm -rf !(archive.zip|.git|link_file.txt)
+    
+    - name: Commit archived content
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
