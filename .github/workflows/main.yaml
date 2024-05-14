@@ -19,4 +19,5 @@ jobs:
       run: mkdir archive
 
     - name: Move files to archive directory
-      run: mv !(archive|.git|) archive/
+      run: |
+      mv !(archive|.git|) archive/
