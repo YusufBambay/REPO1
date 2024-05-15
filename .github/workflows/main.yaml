@@ -21,7 +21,7 @@ jobs:
     - name: Move files to archive directory
       run: |
         shopt -s extglob
-        mv !(archive|.git|link_file.txt) archive/
+        mv !(archive|.git) archive/
 
     - name: Zip the archive directory
       run: zip -r archive.zip archive
@@ -30,6 +30,7 @@ jobs:
       run: |
         shopt -s extglob
         rm -rf !(archive.zip|.git)
+        
     - name: Commit archived content
     
       run: |
