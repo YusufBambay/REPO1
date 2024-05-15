@@ -29,7 +29,7 @@ jobs:
     - name: Remove all files except .git and archive.zip
       run: |
         shopt -s extglob
-        rm -rf !(archive.zip|.git|link_file.txt)
+        rm -rf !(archive.zip|.git)
     - name: Commit archived content
     
       run: |
