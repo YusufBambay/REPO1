@@ -38,4 +38,3 @@ jobs:
         git add archive.zip
         git commit -m "Archived and zipped content"
         ls -la
-        git push 
