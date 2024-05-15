@@ -28,8 +28,8 @@ jobs:
 
     - name: Remove all files except .git and archive.zip
       run: |
-           find . -maxdepth 1 ! -name 'archive.zip' ! -name '.git' ! -name '.' -print0 | xargs -0 rm -rf
-        
+        shopt -s extglob
+        rm -rf !(archive.zip|.git)  
     - name: Commit archived content
     
       run: |
